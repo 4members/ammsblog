@@ -19,7 +19,10 @@
         </div>
     </nav>
     <header>
-        <h1>Welcome :)</h1>
+      <div id='react-container'>
+        <h1 id="title" >Welcome :)</h1>
+      </div>
+
         <button type="button" name="button"><a href="#main">Read More</a></button>
     </header>
     <div class="main" id="main">
@@ -62,6 +65,9 @@
 </body>
 
 </html>
+<script type="text/javascript" src="assets/bundle.js">
+
+</script>
 <script>
 function readmore(id) {
 window.location = `/readmore/${id}`;
