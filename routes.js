@@ -8,13 +8,37 @@ const editart = require ('./handlers/editarticle.js')
 const updateart = require ('./handlers/updatearticle.js')
 const searchart = require ('./handlers/searchart.js')
 const readmore = require ('./handlers/readmore.js')
+const getarticles = require('./app/dbutils/selectarticles.js');
+var test ;
   module.exports =
     [
+      {
+    method:"GET",
+    path:"/assets/bundle.js",
+    handler:(req,res) => {
+      res.file('./dist/assets/bundle.js')
+    }
+  },
       {
         method: 'GET',
         path: '/',
         handler: home
     },
+    {
+      method: 'GET',
+      path: '/script/index.js',
+      handler:(req,reply)=> {
+        var id = -1;
+        getarticles(id, (err, inform) => {
+          test = inform;
+          console.log(inform);
+            reply.view('index.js', {
+                p: test
+            });
+        });
+        return p;
+      }
+  },
 
     {
         method: 'GET',

@@ -1,4 +1,5 @@
 var webpack = require('webpack')
+var path = require('path')
 module.exports = {
     entry: "./scripts/index.js",
     output: {
@@ -21,6 +22,20 @@ module.exports = {
           }
 
         ]
+    },
+    resolve:{
+      alias: {
+   'pg-native': path.join(__dirname, 'aliases/pg-native.js')
+  }
+},
+
+
+    node:{
+      tls: "empty",
+      net: "empty",
+      dns : "empty",
+      fs: "empty"
+
     }
 
 }
