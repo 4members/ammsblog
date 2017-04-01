@@ -9,32 +9,25 @@ module.exports = {
     },
     devServer: {
         inline: true,
-        contentBase: 'index.js',
-        port: 8080
-
+        port: 8080,
+        contentBase: 'index.js'
     },
     module: {
         loaders: [{
-                test: /\.js$/,
-                exclude: /(node_modules)/,
-                loader: ["babel-loader"],
-
-          }
-
-        ]
+            test: /\.js$/,
+            exclude: /(node_modules)/,
+            loader: ["babel-loader"],
+        }]
     },
-    resolve:{
-    alias: {
- 'pg-native': 'aliases/pg-native.js'
-}
-},
-
-    node:{
-      tls: "empty",
-      net: "empty",
-      dns : "empty",
-      fs: "empty"
-
+    resolve: {
+        alias: {
+            'pg-native': 'aliases/pg-native.js'
+        }
+    },
+    node: {
+        tls: "empty",
+        net: "empty",
+        dns: "empty",
+        fs: "empty"
     }
-
 }

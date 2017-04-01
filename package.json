@@ -7,10 +7,14 @@
     "test": "test"
   },
   "dependencies": {
+    "axios": "^0.15.3",
+    "boom": "^4.3.1",
     "codeclimate-test-reporter": "^0.4.1",
     "d3": "^4.7.4",
     "handlebars": "^4.0.6",
     "hapi": "^16.1.0",
+    "hapi-react": "^5.0.1",
+    "hapi-react-views": "^9.2.1",
     "inert": "^4.1.0",
     "istanbul": "^0.4.5",
     "moment": "^2.17.1",
@@ -32,7 +36,7 @@
   },
   "scripts": {
     "test": "node ./test/test.js && node server.js",
-    "start": "node server.js"
+    "start": "webpack && node server.js"
   },
   "repository": {
     "type": "git",

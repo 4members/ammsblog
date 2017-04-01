@@ -1,80 +1,15 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8">
-    <title>Home</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./template/style/style.css">
-</head>
+    <title></title>
+  </head>
+  <body>
+    <div class="" id="root">
 
-<body>
-    <nav>
-        <div class="nav">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Me</a></li>
-                <li style="float:right;"><a href="#">Contact Me</a></li>
-            </ul>
-        </div>
-    </nav>
-    <header>
-      <div id='react-container'>
-        <h1 id="title" >Welcome :)</h1>
-      </div>
-
-        <button type="button" name="button"><a href="#main">Read More</a></button>
-    </header>
-    <div class="main" id="main">
-        <section class="articles">
-
-            <hr> {{#each p }}
-            <div class="article">
-                <img src="http://www.metalinjection.net/wp-content/uploads/2014/07/space-metal.jpg" alt="article image">
-                <h2>{{this.title}}</h2>
-                <hr>
-                <p>{{this.text}}</p>
-                <p>{{this.category}}</p>
-                <label id="{{this.id}}" onclick="readmore(this.id)">Read More</label>
-                <p>{{this.time}}</p>
-                </ br>
-                <p>{{this.doa}}</p><br>
-            </div>
-            {{/each}}
-        </section>
-        <aside class="aside">
-            <img src="./images/admin.png" alt="Admin">
-            <h3>Admin Name</h3>
-            <p>BlahBlahBlahBlahBlahBlahBlahBlahBlahBlah</p>
-        </aside>
     </div>
+    <script src="../dist/assets/bundle.js">
 
-    <input id="category" name="category" list="category">
-      <datalist id="category">
-        <option value="sports">
-        <option value="science">
-        <option value="art">
-        <option value="history">
-      </datalist>
-    <button onclick="theme()">Search</button>
-
-<br><br><br>
-    <footer>
-        <p>Created By AMM &copy; 2017</p>
-    </footer>
-</body>
-
+    </script>
+  </body>
 </html>
-<script type="text/javascript" src="assets/bundle.js">
-
-</script>
-<script>
-function readmore(id) {
-window.location = `/readmore/${id}`;
-}
-function search() {
-  var val = document.getElementById('category').value;
-  console.log(val);
-  window.location = `/search/${val}`;
-}
-</script>

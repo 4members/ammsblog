@@ -3,8 +3,6 @@ const server = new Hapi.Server();
 const routes = require('./routes.js')
 const conncrea = require('./app/dbutils/client.js');
 
-
-
 server.connection({
     port: process.env.PORT || 8080
 
@@ -16,13 +14,13 @@ server.register([require('vision'), require('inert')], (err) => {
 
     server.views({
         engines: {
-            html: require('handlebars')
-        },
+            html : require('handlebars')
+            }, // support for .jsx files
         relativeTo: __dirname,
         path: 'template',
         helpersPath: 'helpers'
     });
-server.route(routes)
+    server.route(routes)
 });
 
 

@@ -1,44 +1,41 @@
-
-const home = require ('./handlers/home.js')
-const admin = require ('./handlers/admin.js')
-const insert = require ('./handlers/insert.js')
-const addarticle = require ('./handlers/addarticle.js')
-const deleteart = require ('./handlers/deletearticle.js')
-const editart = require ('./handlers/editarticle.js')
-const updateart = require ('./handlers/updatearticle.js')
-const searchart = require ('./handlers/searchart.js')
-const readmore = require ('./handlers/readmore.js')
+const home = require('./handlers/home.js')
+const admin = require('./handlers/admin.js')
+const insert = require('./handlers/insert.js')
+const addarticle = require('./handlers/addarticle.js')
+const deleteart = require('./handlers/deletearticle.js')
+const editart = require('./handlers/editarticle.js')
+const updateart = require('./handlers/updatearticle.js')
+const searchart = require('./handlers/searchart.js')
+const readmore = require('./handlers/readmore.js')
 const getarticles = require('./app/dbutils/selectarticles.js');
-var test ;
-  module.exports =
-    [
-      {
-    method:"GET",
-    path:"/assets/bundle.js",
-    handler:(req,res) => {
-      res.file('./dist/assets/bundle.js')
-    }
-  },
-      {
+var test;
+module.exports = [{
+        method: "GET",
+        path: "/assets/bundle.js",
+        handler: (req, res) => {
+            res.file('./dist/assets/bundle.js')
+        }
+    },
+    {
         method: 'GET',
         path: '/',
         handler: home
     },
     {
-      method: 'GET',
-      path: '/script/index.js',
-      handler:(req,reply)=> {
-        var id = -1;
-        getarticles(id, (err, inform) => {
-          test = inform;
-          console.log(inform);
-            reply.view('index.js', {
-                p: test
+        method: 'GET',
+        path: '/script/index.js',
+        handler: (req, reply) => {
+            var id = -1;
+            getarticles(id, (err, inform) => {
+                test = inform;
+                console.log(inform);
+                reply.view('index.js', {
+                    p: test
+                });
             });
-        });
-        return p;
-      }
-  },
+            return p;
+        }
+    },
 
     {
         method: 'GET',
@@ -56,7 +53,7 @@ var test ;
         path: '/insertarticle',
         handler: insert
     },
-  {
+    {
         method: 'GET',
         path: '/deletearticle/{id}',
         handler: deleteart
@@ -64,16 +61,16 @@ var test ;
     {
         method: 'GET',
         path: '/editarticle/{id}',
-        handler:editart
+        handler: editart
     },
 
     {
         method: 'POST',
         path: '/updatearticle/{id}',
-        handler:updateart
+        handler: updateart
     },
 
-  {
+    {
         method: 'GET',
         path: '/readmore/{id}',
         handler: readmore
@@ -81,9 +78,18 @@ var test ;
     {
         method: 'GET',
         path: '/search/{val}',
-        handler:searchart
+        handler: searchart
     },
-
+    {
+        method: 'GET',
+        path: '/template/images/admin.png',
+        handler: (req,res)=>{res.file('./template/images/admin.png')}
+    },
+    {
+        method: 'GET',
+        path: '/dist/assets/bundle.js',
+        handler: (req,res)=>{res.file('./dist/assets/bundle.js')}
+    },
     {
         method: 'GET',
         path: '/template/style/{file*}',
@@ -93,4 +99,4 @@ var test ;
             }
         }
     }
-  ]
+]
